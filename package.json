@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chalk": "^5.3.0",
     "postman-request": "^2.88.1-postman.33",
     "request": "^2.88.2"
   }
