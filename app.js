@@ -1,30 +1,26 @@
-// const request=require('request');
 const geocode=require('./utils/geocode')
+const forecast=require('./utils/weather')
 
+const location_input=process.argv[2]
 
-// const weather_url ="http://api.openweathermap.org/data/2.5/forecast?q=Kampala&appid=c711fc8dd07409d39658340a5cdbc8c8&units=metric";
-// const location_url= "https://api.mapbox.com/geocoding/v5/mapbox.places/Kigali.json?access_token=pk.eyJ1IjoiaGlndXN0YXZlMTIzIiwiYSI6ImNscnJ0ZDR2bTBkd2MybHBrbTNjZjlzZHcifQ.WPbLnISyfAJW-tidLdghuA&limit=1"
+if(!location_input){
+    return console.log("Location not provided.")
+}
 
-// request({url:weather_url, json:true}, (error, response)=>{
-//     if(error){
-//         console.log('Unable to connect to weather service!')
-//     }else{
-//         const items=response.body.list;
-//         console.log("Current Weather in "+response.body.city.name+", "+response.body.city.country)
-//         console.log("*****************************")
-//         console.log("Temperature(celcius): "+items[0].main.temp)
-//         console.log("Rain: "+items[0].weather[0].description)
-//     }
-// })
+geocode(location_input, (error, data)=>{
+    if(error){
+        return console.log(error)
+    }
 
-// request({url: location_url, json:true}, (error, response)=>{
-//     const location_data=response.body.features;
-//     console.log("City:"+location_data[0].text);
-//     console.log("Longitude:"+location_data[0].center[0]+" \nLatitude:"+location_data[0].center[1]);
-// })
-
-
-geocode('Boston', (error, data)=>{
-    console.log('Error', error)
-    console.log('Data', data)
+    forecast(data.City, (error,forecast_data)=>{
+        if(error){
+            return console.log(error)
+        }
+        console.log('City:', data.City)
+        console.log('Temp(°C):', forecast_data.TempCelcius)
+        console.log('Weather Details:',forecast_data.Details)
+    })
 })
+
+
+
