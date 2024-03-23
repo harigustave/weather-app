@@ -1,0 +1,18 @@
+h1{
+    color: grey
+}
+
+#menu_div{
+    margin-bottom: 10px;
+}
+
+#menu_div a{
+    text-decoration: underline;
+    font-weight: bold;
+    color: green;
+}
+
+img{
+    width: 200px;
+    height: auto
+}
