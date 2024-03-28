@@ -2,10 +2,33 @@
 <html>
     <head>
         <link rel="stylesheet" href="./css/styles.css" />
+        <title>Weather</title>
+        <link rel="icon" href="/img/weather.png"/>
     </head>
     <body>
-        {{>header}}
-        <img src="./img/weather.jpg"/>
+        <div class="main-content">
+            <p>
+                <img src="/img/weather_logo.jpg" id="weather-logo"/> <h1>{{title}}</h1>
+            </p>
+            
+            {{>header}}
+            <p>Use this site to get your weather!</p>
+            <form>
+                <input placeholder="Enter City">
+                <button>Search</button>
+            </form>
+            <p id="message-1">
+
+            </p>
+            <p id="message-2">
+
+            </p>
+            <p id="message-3">
+
+            </p>
+        </div>
         {{>footer}}
+
+        <script src="/js/app.js"></script>   {{!-- The script file is put here in order to loade after the html button is clicked on --}}
     </body>
 </html>

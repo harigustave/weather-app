@@ -1,6 +1,7 @@
 const path=require('path')
 const express = require('express')
 const hbs=require('hbs')
+const forecast=require('./utils/weather')
 
 const app = express()
 const port = 4000
@@ -17,28 +18,54 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('',(req,res)=>{
     res.render('index', {
-        title:'Home Page',
+        title:'WeatherBooth',
         name:'Gustave Harintwali'
     })
 })
 
 app.get('/about', (req,res)=>{
     res.render('about',{
-        title:'About Us',
-        name:'Gustave Harintwali'
-    })
-})
-
-app.get('/weather', (req,res)=>{
-    res.render('weather',{
-        title:'Current Weather',
+        title:'WeatherBooth',
         name:'Gustave Harintwali'
     })
 })
 
 app.get('/help', (req,res)=>{
     res.render('help',{
-        title:'Help Page',
+        title:'WeatherBooth',
+        content:'Contact US',
+        name:'Gustave Harintwali'
+    })
+})
+
+//This endpoint is the one to be consumed by the form in js/app.js
+app.get('/weather', (req,res)=>{
+
+    if(!req.query.address){
+            return res.send({
+                error: 'You must provide a city to search'
+                })
+        }
+
+    forecast(req.query.address, (error,forecast_data)=>{
+        if(error){
+            return res.send({
+                error
+            })
+        }
+
+        res.send({
+            'Date': forecast_data.Date,
+            'Address':forecast_data.City,
+            'WeatherDetails': forecast_data.TempCelcius+'°C, '+forecast_data.Details
+        })
+    })
+})
+
+app.get('*', (req,res)=>{
+    res.render('404',{
+        title:'WeatherBooth',
+        content:'404 Page Not Found',
         name:'Gustave Harintwali'
     })
 })

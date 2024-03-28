@@ -1,18 +1,73 @@
+body{
+    color: #333333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /*Make the body to have 100% of the screen height*/
+}
+
+.main-content{
+    flex-grow: 1; /* Aloow the main-content class div to take  the left-over space of the div*/
+}
+
+footer{
+   color: #888888;
+   border-top: 1px solid #eeeeee;
+   margin-top: 16px;
+   padding: 16px 0;
+   font-size: 13px;
+}
+
+#phone-contact{
+    width: 20px
+}
+
+header{
+    margin-top: 36px;
+    margin-bottom: 48px;
+}
+
+#weather-logo{
+    width: 80px;  
+    border-radius: 180px;  
+}
+
 h1{
-    color: grey
+    font-size: 64px;
+    margin-bottom: 16px;
 }
 
-#menu_div{
-    margin-bottom: 10px;
+header a{
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
 }
 
-#menu_div a{
-    text-decoration: underline;
-    font-weight: bold;
-    color: green;
+.portrait{
+    height: 150px;
+    width: 135px;
+    border: 1px solid #a0a0a0;
+    border-radius: 8px;
 }
 
-img{
-    width: 200px;
-    height: auto
+input{
+    border: 1px solid #CCCCCC;
+    padding: 8px;
 }
+
+button{
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
+}
+
+#message-1{
+    padding-top: 40px;
+    margin-bottom: 12px;
+}
+

@@ -2,10 +2,25 @@
 <html>
     <head>
         <link rel="stylesheet" href="./css/styles.css" />
+        <title>About</title>
+        <link rel="icon" href="/img/weather.png"/>
     </head>
     <body>
-        {{>header}}
-        <img src="./img/weather.jpg"/>
+        <div class="main-content">
+             <p>
+                <img src="/img/weather_logo.jpg" id="weather-logo"/> <h1>{{title}}</h1>
+            </p>
+            {{>header}}
+            <img src="./img/photo.jpg" class="portrait"/>
+            <hr/>
+            <h4>
+                <u>Developed By: Gustave Harintwali,</u>
+            </h4>
+            
+                 <b>WeatherBooth </b>is a simple weather forecast application with current city temperature, date & time and the fictive weather forecast for the next 1 Hour
+          
+               
+        </div>
         {{>footer}}
     </body>
 </html>
