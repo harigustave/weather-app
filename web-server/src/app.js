@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const forecast=require('./utils/weather')
 
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000    //Heroku process will provide a dynamic port OR use 4000 if not
 
 const publicDirectoryPath= path.join(__dirname,'../public')
 const viewsPath=path.join(__dirname,'../templates/views')

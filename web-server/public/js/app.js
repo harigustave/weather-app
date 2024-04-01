@@ -22,7 +22,7 @@ for(let i=0;i<hyperlinks.length;i++){
 weatherForm.addEventListener('submit',(event)=>{
     event.preventDefault()
     const city=search.value
-    fetch('http://localhost:4000/weather?address='+city).then((response)=>{
+    fetch('/weather?address='+city).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 messageOne.textContent=data.error
