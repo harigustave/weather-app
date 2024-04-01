@@ -18,7 +18,6 @@ for(let i=0;i<hyperlinks.length;i++){
     });
 }
 
-
 weatherForm.addEventListener('submit',(event)=>{
     event.preventDefault()
     const city=search.value
