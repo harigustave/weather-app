@@ -13,7 +13,7 @@ const fetch_weather=(address, callback)=>{
                 {   Date: response.body.list[0].dt_txt,
                     City: response.body.city.name+", "+response.body.city.country,
                     TempCelcius: response.body.list[0].main.temp,
-                    Details: response.body.list[0].weather[0].description+ '. There is '+rain_probability+'% chance of rain'
+                    Details: response.body.list[0].weather[0].description+ '. There is '+Math.round(rain_probability)+'% chance of rain'
                 })
         }
     })
