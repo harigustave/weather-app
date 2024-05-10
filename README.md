@@ -8,7 +8,7 @@ We hope you are going to enjoy this.....
 How to access the app:  
 
 * git clone https://github.com/harigustave/weather-app.git
-*cd weather-app\web-server> npm -g inatsll nodemon
+* cd weather-app\web-server> npm -g inatsll nodemon
 * cd weather-app\web-server> nodemon .\src\app.js
 * open a browser and type in "localhost:<port>"
 
